@@ -1,8 +1,13 @@
+body {
+    background-color: rgb(76, 76, 236) !important;
+}
+
+
 container {
     min-height: 100vh;
     background-color: rgb(76, 76, 236) !important;
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
