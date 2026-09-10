@@ -40,3 +40,20 @@ let questions = [
     "right_answer": 2
   }
 ]
+
+let currentQuestion = 0;
+
+function init() {
+    document.getElementById('all-questions').innerHTML = questions.length;
+
+    showQuestion();
+}
+
+function showQuestion() {
+ let question = questions[currentQuestion];
+ document.getElementById('questiontext') = question['question'];
+ document.getElementById('answer_1').innerHTML = question['anser1'];
+  document.getElementById('answer_2').innerHTML = question['anser2'];
+   document.getElementById('answer_3').innerHTML = question['anser3'];
+    document.getElementById('answer_4').innerHTML = question['anser4'];
+}
