@@ -51,9 +51,9 @@ function init() {
 
 function showQuestion() {
  let question = questions[currentQuestion];
- document.getElementById('questiontext') = question['question'];
- document.getElementById('answer_1').innerHTML = question['anser1'];
-  document.getElementById('answer_2').innerHTML = question['anser2'];
-   document.getElementById('answer_3').innerHTML = question['anser3'];
-    document.getElementById('answer_4').innerHTML = question['anser4'];
+ document.getElementById('questiontext').innerHTML = question['question'];
+ document.getElementById('answer_1').innerHTML = question['answer1'];
+document.getElementById('answer_2').innerHTML = question['answer2'];
+document.getElementById('answer_3').innerHTML = question['answer3'];
+document.getElementById('answer_4').innerHTML = question['answer4'];
 }
