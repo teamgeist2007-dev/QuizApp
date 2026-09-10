@@ -35,3 +35,14 @@ background-color: rgb(231, 229, 229);
 .with-100 {
     width: 100%;
 }
+
+.text-center {
+text-align: center;
+
+}
+
+.finalHeadline{
+    font-size: 38px;
+    margin-bottom: 32px;
+}
+

@@ -41,6 +41,9 @@ let questions = [
   }
 ]
 
+
+let rightQuestions = 0;
+
 let currentQuestion = 0;
 
 function init() {
@@ -55,6 +58,10 @@ if(currentQuestion >= questions.length) {
 // TODO: Show End Screen
 document.getElementById('endScreen').style = '';
 document.getElementById('questionBody').style = 'display: none';
+
+document.getElementById('amountofQuestions').innerHTML = questions.length;
+document.getElementById('amountofrightQuestions').innerHTML = rightQuestions;
+document.getElementById('header-image').src = 'assets/img/Pokal.png';
  } else{ 
 
 
@@ -78,8 +85,9 @@ function answer(selection) {
 
 
     if (selectedQuestionNumber == question['right_answer']) {
-        console.log('Richtige Antwort!!!');
+      
         document.getElementById(selection).parentNode.classList.add('bg-success');
+        rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
