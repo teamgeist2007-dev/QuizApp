@@ -50,10 +50,63 @@ function init() {
 }
 
 function showQuestion() {
+
+if(currentQuestion >= questions.length) {
+// TODO: Show End Screen
+document.getElementById('endScreen').style = '';
+document.getElementById('questionBody').style = 'display: none';
+ } else{ 
+
+
  let question = questions[currentQuestion];
+
+ document.getElementById('question-number').innerHTML = currentQuestion +1;
  document.getElementById('questiontext').innerHTML = question['question'];
  document.getElementById('answer_1').innerHTML = question['answer1'];
 document.getElementById('answer_2').innerHTML = question['answer2'];
 document.getElementById('answer_3').innerHTML = question['answer3'];
 document.getElementById('answer_4').innerHTML = question['answer4'];
+
+ }
+
 }
+
+function answer(selection) {
+    let question = questions[currentQuestion];
+    let selectedQuestionNumber = Number(selection.slice(-1));
+    let idOfRightAnswer = `answer_${question['right_answer']}`;
+
+
+    if (selectedQuestionNumber == question['right_answer']) {
+        console.log('Richtige Antwort!!!');
+        document.getElementById(selection).parentNode.classList.add('bg-success');
+    } else {
+        document.getElementById(selection).parentNode.classList.add('bg-danger');
+        document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
+    }
+    document.getElementById('next-Button').disabled = false;
+}
+
+function nextQuestion(){
+currentQuestion++;
+resetAnswerButtons();
+
+showQuestion();
+
+document.getElementById('next-Button').disabled = true;
+}
+
+function resetAnswerButtons() {
+    document.getElementById('answer_1')
+        .parentNode.classList.remove('bg-danger', 'bg-success');
+
+    document.getElementById('answer_2')
+        .parentNode.classList.remove('bg-danger', 'bg-success');
+
+    document.getElementById('answer_3')
+        .parentNode.classList.remove('bg-danger', 'bg-success');
+
+    document.getElementById('answer_4')
+        .parentNode.classList.remove('bg-danger', 'bg-success');
+}
+
