@@ -64,8 +64,7 @@ document.getElementById('amountofrightQuestions').innerHTML = rightQuestions;
 document.getElementById('header-image').src = 'assets/img/Pokal.png';
  } else{ 
 
-
- let question = questions[currentQuestion];
+let question = questions[currentQuestion];
 
  document.getElementById('question-number').innerHTML = currentQuestion +1;
  document.getElementById('questiontext').innerHTML = question['question'];
@@ -83,15 +82,22 @@ function answer(selection) {
     let selectedQuestionNumber = Number(selection.slice(-1));
     let idOfRightAnswer = `answer_${question['right_answer']}`;
 
-
     if (selectedQuestionNumber == question['right_answer']) {
-      
         document.getElementById(selection).parentNode.classList.add('bg-success');
         rightQuestions++;
     } else {
         document.getElementById(selection).parentNode.classList.add('bg-danger');
         document.getElementById(idOfRightAnswer).parentNode.classList.add('bg-success');
     }
+
+    let percent = Math.round(((currentQuestion + 1) / questions.length) * 100);
+
+    document.getElementById('progress-bar').innerHTML = `${percent} %`;
+    document.getElementById('progress-bar').style.width = `${percent}%`;
+    document.getElementById('quiz-progress').setAttribute('aria-valuenow', percent);
+
+    console.log('Fortschritt:', percent);
+
     document.getElementById('next-Button').disabled = false;
 }
 
